@@ -5,6 +5,11 @@ if (!isset($_SESSION['login'])) {
     exit();
 }
 
+if ($_SESSION['user_akses'] !== 'Marketing') {
+    header('Location: index.php');
+    exit();
+}
+
 require 'config/marketing.php';
 
 //pagination
