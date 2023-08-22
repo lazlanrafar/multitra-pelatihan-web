@@ -6,10 +6,12 @@
     <div class="navbar-collapse collapse">
         <ul class="navbar-nav navbar-align">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                    <img src="https://ui-avatars.com/api/?name=John Doe" class="avatar img-fluid rounded me-1"
+                <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                    <img src="https://ui-avatars.com/api/?name=<?php echo $_SESSION['user']['nama']; ?>" class="avatar img-fluid rounded me-1"
                         alt="Charles Hall" />
-                    <span class="text-dark">Charles Hall</span>
+                    <span class="text-dark">
+                        <?php echo $_SESSION['user']['nama']; ?>
+                    </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
                     <a class="dropdown-item text-danger" href="#">
