@@ -47,12 +47,7 @@ if (isset($_POST['login'])) {
                 <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto d-table h-100">
                     <div class="d-table-cell align-middle">
 
-                        <div class="text-center mt-4">
-                            <h1 class="h2">Welcome back!</h1>
-                            <p class="lead">
-                                Sign in to your account to continue
-                            </p>
-                        </div>
+
                         <?php if (isset($error)) :  ?>
                         <div class="alert alert-danger" role="alert">
                             <?php echo $error; ?>
@@ -60,6 +55,13 @@ if (isset($_POST['login'])) {
                         <?php endif; ?>
                         <div class="card">
                             <div class="card-body">
+                                <div class="text-center mt-4">
+                                    <img src="assets/img/logo.png" width="80" alt="">
+                                    <h1 class="h2">Welcome back!</h1>
+                                    <p class="lead">
+                                        Sign in to your account to continue
+                                    </p>
+                                </div>
                                 <div class="m-sm-3">
                                     <form action="" method="POST">
                                         <div class="mb-3">
