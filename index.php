@@ -10,7 +10,7 @@ if ($_SESSION['user_akses'] == 'Super Admin') {
 } elseif ($_SESSION['user_akses'] == 'Marketing') {
     header('Location: marketing.php');
 } elseif ($_SESSION['user_akses'] == 'Admin Operasional') {
-    header('Location: admin_operasional.php');
+    header('Location: admin-operasional.php');
 } elseif ($_SESSION['user_akses'] == 'Operasional Training') {
     header('Location: operasional_training.php');
 }

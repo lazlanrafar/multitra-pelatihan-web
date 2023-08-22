@@ -29,7 +29,7 @@ if (isset($_POST['login'])) {
             } elseif ($row['user_akses'] == 'Marketing') {
                 header('Location: marketing.php');
             } elseif ($row['user_akses'] == 'Admin Operasional') {
-                header('Location: admin_operasional.php');
+                header('Location: admin-operasional.php');
             } elseif ($row['user_akses'] == 'Operasional Training') {
                 header('Location: operasional_training.php');
             }

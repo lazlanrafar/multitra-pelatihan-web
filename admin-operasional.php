@@ -5,12 +5,12 @@ if (!isset($_SESSION['login'])) {
     exit();
 }
 
-if ($_SESSION['user_akses'] !== 'Marketing') {
+if ($_SESSION['user_akses'] !== 'Admin Operasional') {
     header('Location: index.php');
     exit();
 }
 
-require 'config/pelatihan-marketing.php';
+require 'config/pelatihan-admin.php';
 
 //pagination
 //konfigurasi
@@ -56,14 +56,13 @@ if (isset($_POST['filter_status'])) {
 
             <main class="content">
                 <div class="container-fluid p-0">
-                    <h1 class="h3 mb-3"><strong>Marketing</strong> Dashboard</h1>
+                    <h1 class="h3 mb-3"><strong>Admin Operasional</strong> Dashboard</h1>
 
                     <div class="text-right">
                         <H5 class="jam"> <span id="tanggalwaktu"></span></H5>
                         <h5>Jam : <b><span id="jam" style="font-size:1rem"></span></b></h5>
                     </div>
 
-                    <?php include 'components/marketing-form-pelatihan.php'; ?>
 
                     <br>
                     <br>
@@ -147,14 +146,15 @@ if (isset($_POST['filter_status'])) {
                                             <th>Tgl Selesai</th>
                                             <th>Jumlah Peserta</th>
                                             <th>Status Kegiatan</th>
-                                            <th>Permohonan Izin Pelatihan ke Teman K3</th>
-                                            <th>Input Peserta</th>
-                                            <th>Submit Data Peserta</th>
-                                            <th>Pengajuan Sertifikat Internal </th>
+                                            <th>Tanggal Aktual Sertifikat</th>
+                                            <th>Tanggal Target Sertifikat</th>
+                                            <th>Pengajuan Sertifikat Internal</th>
+                                            <th>Tanggal Aktual Dokumen</th>
+                                            <th>Tanggal Target Dokumen</th>
                                             <th>Dokumen Diterima Dari Kemnaker</th>
                                             <th>Status Dokumen</th>
                                             <th>Keterangan</th>
-                                            <th colspan="2">Aksi </th>
+                                            <th colspan="2">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -168,15 +168,20 @@ if (isset($_POST['filter_status'])) {
                                             <td><?php echo $row['tanggal_selesai']; ?></td>
                                             <td><?php echo $row['jumlah_peserta']; ?></td>
                                             <?php require 'partials/row-status-kegiatan.php'; ?>
-                                            <?php require 'partials/row-permohonan-izin.php'; ?>
-                                            <?php require 'partials/row-input-peserta.php'; ?>
-                                            <?php require 'partials/row-submit-data-peserta.php'; ?>
+
+                                            <td><?php echo $row['tgl_aktual_serti']; ?></td>
+                                            <td><?php echo $row['tgl_target_serti']; ?></td>
+
                                             <?php require 'partials/row-pengajuan-sertifikat-internal.php'; ?>
+
+                                            <td><?php echo $row['tgl_aktual_dok']; ?></td>
+                                            <td><?php echo $row['tgl_target_dok']; ?></td>
+
                                             <?php require 'partials/row-dokumen-diterima.php'; ?>
                                             <?php require 'partials/row-status-dokumen.php'; ?>
                                             <?php require 'partials/row-keterangan.php'; ?>
                                             <td>
-                                                <?php require 'components/marketing-form-update-pelatihan.php'; ?>
+                                                <?php require 'components/admin-form-update-pelatihan.php'; ?>
                                             </td>
                                             <td>
                                                 <?php require 'components/handle-delete-pelatihan.php'; ?>
@@ -221,3 +226,24 @@ if (isset($_POST['filter_status'])) {
 </body>
 
 </html>
+<?php
+
+function getStatus($aktual, $target)
+{
+    if ($aktual == null) {
+        return 'On Progress';
+    }
+    if (date('d M y', strtotime($aktual)) < date('d M y', strtotime($target))) {
+        return 'Done';
+    }
+    $aktualTimestamp = strtotime(date('d M y', strtotime($aktual)));
+    $targetTimestamp = strtotime(date('d M y', strtotime($target)));
+
+    if ($aktualTimestamp > $targetTimestamp) {
+        $differenceInSeconds = $aktualTimestamp - $targetTimestamp;
+        $differenceInDays = floor($differenceInSeconds / (60 * 60 * 24));
+
+        return 'Over Schedule + ' . $differenceInDays;
+    }
+}
+?>

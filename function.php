@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('Asia/jakarta');
-$conn = mysqli_connect("localhost", "root", "", "multitra_multidasa");
+$conn = mysqli_connect('localhost', 'root', '', 'multitra_multidasa');
 
 function query($query)
 {
@@ -33,7 +33,7 @@ function tambah($data)
     $status_dokumen = htmlspecialchars($data['status_dokumen']);
     $keterangan = htmlspecialchars($data['keterangan']);
 
-    $query = "INSERT INTO tabel_pelatihan 
+    $query = "INSERT INTO tabel_pelatihan
             values
             ('', '$nama_kegiatan', '$tanggal_mulai', '$tanggal_selesai', '$jumlah_peserta', '$status_kegiatan', '$permohonan_izin', '$input_peserta', '$submit_data_peserta','$tgl_aktual_serti', '$tgl_target_serti', '$pengajuan_sertifikat_internal', '$tgl_aktual_dok', '$tgl_target_dok', '$dokumen_diterima', '$status_dokumen', '$keterangan')
             ";
@@ -41,7 +41,6 @@ function tambah($data)
 
     return mysqli_affected_rows($conn);
 }
-
 
 function hapus($id)
 {
@@ -53,7 +52,7 @@ function hapus($id)
 function edit($data)
 {
     global $conn;
-    $id = $data["id"];
+    $id = $data['id'];
     $nama_kegiatan = htmlspecialchars($data['nama_kegiatan']);
     $tanggal_mulai = htmlspecialchars($data['tanggal_mulai']);
     $tanggal_selesai = htmlspecialchars($data['tanggal_selesai']);
@@ -68,14 +67,13 @@ function edit($data)
     $keterangan = htmlspecialchars($data['keterangan']);
     $query = "UPDATE tabel_pelatihan SET
             
-          nama_kegiatan = '$nama_kegiatan', tanggal_mulai = '$tanggal_mulai', tanggal_selesai = '$tanggal_selesai', jumlah_peserta = '$jumlah_peserta', status_kegiatan = '$status_kegiatan', permohonan_izin = '$permohonan_izin', input_peserta = '$input_peserta', submit_data_peserta = '$submit_data_peserta', pengajuan_sertifikat_internal = '$pengajuan_sertifikat_internal', dokumen_diterima = '$dokumen_diterima', status_dokumen = '$status_dokumen', keterangan = '$keterangan' 
+          nama_kegiatan = '$nama_kegiatan', tanggal_mulai = '$tanggal_mulai', tanggal_selesai = '$tanggal_selesai', jumlah_peserta = '$jumlah_peserta', status_kegiatan = '$status_kegiatan', permohonan_izin = '$permohonan_izin', input_peserta = '$input_peserta', submit_data_peserta = '$submit_data_peserta', pengajuan_sertifikat_internal = '$pengajuan_sertifikat_internal', dokumen_diterima = '$dokumen_diterima', status_dokumen = '$status_dokumen', keterangan = '$keterangan'
           WHERE id = $id
             ";
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
 }
-
 
 function registrasi($data)
 {
@@ -93,111 +91,25 @@ function registrasi($data)
 
     if (mysqli_fetch_assoc($result)) {
         echo "<script>
-        alert('username sudah terdaftar!')
-
-    </script>";
+            alert('username sudah terdaftar!')
+        </script>";
 
         return false;
     }
 
-
     // cek konfirmasi password
     if ($password !== $password2) {
         echo "<script>
-                alert ('konfirmasi password tidak sesuai!');
-            </script>";
+            alert('konfirmasi password tidak sesuai!');
+        </script>";
         return false;
     }
 
     // enkripsi password
     $password = password_hash($password, PASSWORD_DEFAULT);
 
-
     // tambahkan user baru ke database
     mysqli_query($conn, "INSERT INTO user VALUES('', '$nama', '$username', '$email', '$password', '$user_akses')");
-
-    return mysqli_affected_rows($conn);
-}
-
-
-
-function createPelatihan($data){
-    global $conn;
-    $nama_kegiatan = htmlspecialchars($data['nama_kegiatan']);
-    $tanggal_mulai = htmlspecialchars($data['tanggal_mulai']);
-    $tanggal_selesai = htmlspecialchars($data['tanggal_selesai']);
-    $jumlah_peserta = htmlspecialchars($data['jumlah_peserta']);
-    $status_kegiatan = htmlspecialchars($data['status_kegiatan']);
-    $keterangan = htmlspecialchars($data['keterangan']);
-
-    $query = "INSERT INTO tabel_pelatihan 
-            values
-            ('', '$nama_kegiatan', '$tanggal_mulai', '$tanggal_selesai', '$jumlah_peserta', '$status_kegiatan', '$keterangan')
-            ";
-    mysqli_query($conn, $query);
-
-    return mysqli_affected_rows($conn);
-}
-
-function marketing_edit($data)
-{
-    global $conn;
-    $id = $data["id"];
-    $nama_kegiatan = htmlspecialchars($data['nama_kegiatan']);
-    $tanggal_mulai = htmlspecialchars($data['tanggal_mulai']);
-    $tanggal_selesai = htmlspecialchars($data['tanggal_selesai']);
-    $jumlah_peserta = htmlspecialchars($data['jumlah_peserta']);
-    $status_kegiatan = htmlspecialchars($data['status_kegiatan']);
-    $keterangan = htmlspecialchars($data['keterangan']);
-    $query = "UPDATE tabel_pelatihan SET
-            
-          nama_kegiatan = '$nama_kegiatan', tanggal_mulai = '$tanggal_mulai', tanggal_selesai = '$tanggal_selesai', jumlah_peserta = '$jumlah_peserta', status_kegiatan = '$status_kegiatan', keterangan = '$keterangan' 
-          WHERE id = $id
-            ";
-    mysqli_query($conn, $query);
-
-    return mysqli_affected_rows($conn);
-}
-
-//function admin//
-// function admin_tambah($data)
-// {
-//     global $conn;
-//     $nama_kegiatan = htmlspecialchars($data['nama_kegiatan']);
-//     $tanggal_mulai = htmlspecialchars($data['tanggal_mulai']);
-//     $tanggal_selesai = htmlspecialchars($data['tanggal_selesai']);
-//     $jumlah_peserta = htmlspecialchars($data['jumlah_peserta']);
-//     $status_kegiatan = htmlspecialchars($data['status_kegiatan']);
-//     $keterangan = htmlspecialchars($data['keterangan']);
-
-//     $query = "INSERT INTO tabel_pelatihan 
-//             values
-//             ('', '$nama_kegiatan', '$tanggal_mulai', '$tanggal_selesai', '$jumlah_peserta', '$status_kegiatan', '$keterangan')
-//             ";
-//     mysqli_query($conn, $query);
-
-//     return mysqli_affected_rows($conn);
-// }
-
-function admin_edit($data)
-{
-    global $conn;
-    $id = $data["id"];
-    // $nama_kegiatan = htmlspecialchars($data['nama_kegiatan']);
-    // $tanggal_mulai = htmlspecialchars($data['tanggal_mulai']);
-    // $tanggal_selesai = htmlspecialchars($data['tanggal_selesai']);
-    // $jumlah_peserta = htmlspecialchars($data['jumlah_peserta']);
-    // $status_kegiatan = htmlspecialchars($data['status_kegiatan']);
-    $tgl_aktual_serti = htmlspecialchars($data['tgl_aktual_serti']);
-    $tgl_aktual_dok = htmlspecialchars($data['tgl_aktual_dok']);
-    $status_dokumen = htmlspecialchars($data['status_dokumen']);
-    $keterangan = htmlspecialchars($data['keterangan']);
-    $query = "UPDATE tabel_pelatihan SET
-            
-        tgl_aktual_serti = '$tgl_aktual_serti', tgl_aktual_dok = '$tgl_aktual_dok', status_dokumen = '$status_dokumen', keterangan = '$keterangan' 
-          WHERE id = $id
-            ";
-    mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
 }
