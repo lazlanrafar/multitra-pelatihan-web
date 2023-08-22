@@ -1,30 +1,29 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["login"])) {
-  header("Location: login.php");
-  exit;
+if (!isset($_SESSION['login'])) {
+    header('Location: login.php');
+    exit();
 }
 
-require "function.php";
+require 'function.php';
 
 $id = $_GET['id'];
 
-if (hapus($id) > 0 ) {
-	   echo "
+if (deletePelatihanById($id) > 0) {
+    echo "
             <script>
             alert('data berhasil dihapus!');
             document.location.href = 'index.php';
             </script>
         ";
 } else {
-	   echo "
+    echo "
             <script>
             alert('data gagal dihapus!');
             document.location.href = 'index.php';
             </script>
         ";
 }
-
 
 ?>

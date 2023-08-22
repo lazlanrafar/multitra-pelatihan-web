@@ -194,33 +194,7 @@ if (isset($_POST['edit'])) {
                                                 <?php require 'components/marketing-form-update-pelatihan.php'; ?>
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                    data-bs-target="#modalHapus<?php echo $row['id']; ?>">
-                                                    <i class="bi bi-trash"></i>
-                                                </button>
-
-                                                <div class="modal fade" id="modalHapus<?php echo $row['id']; ?>"
-                                                    tabindex="-1" aria-labelledby="exampleModalLabel"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal"
-                                                                    aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                Anda Yakin Ingin Menghapus?
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
-                                                                <a href="hapus.php?id=<?= $row['id'] ?>"
-                                                                    type="submit" class="btn btn-danger">Hapus</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <?php require 'components/handle-delete-pelatihan.php'; ?>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
