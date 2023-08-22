@@ -24,15 +24,7 @@ if (isset($_POST['login'])) {
             $_SESSION['user'] = $row;
             $_SESSION['user_akses'] = $row['user_akses'];
 
-            if ($row['user_akses'] == 'Super Admin') {
-                header('Location: index.php');
-            } elseif ($row['user_akses'] == 'Marketing') {
-                header('Location: marketing.php');
-            } elseif ($row['user_akses'] == 'Admin Operasional') {
-                header('Location: admin-operasional.php');
-            } elseif ($row['user_akses'] == 'Operasional Training') {
-                header('Location: operasional_training.php');
-            }
+            header('Location: index.php');
 
             exit();
         } else {
