@@ -20,9 +20,7 @@
                             <label class="form-label text-start" for="keterangan">Catatan
                             </label>
                             <textarea class="form-control" type="text" cols="20" rows="5" disabled name="keterangan" id="keterangan"
-                                required autocomplete="off">
-                            <?php echo $row['keterangan']; ?>
-                            </textarea>
+                                required autocomplete="off"><?php echo $row['keterangan']; ?></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
