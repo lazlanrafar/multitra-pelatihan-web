@@ -146,9 +146,7 @@ function filterStatus($status)
     return query($query);
 }
 
-//function marketing//
-function marketing_tambah($data)
-{
+function createPelatihan($data){
     global $conn;
     $nama_kegiatan = htmlspecialchars($data['nama_kegiatan']);
     $tanggal_mulai = htmlspecialchars($data['tanggal_mulai']);
@@ -162,8 +160,6 @@ function marketing_tambah($data)
             ('', '$nama_kegiatan', '$tanggal_mulai', '$tanggal_selesai', '$jumlah_peserta', '$status_kegiatan', '$keterangan')
             ";
     mysqli_query($conn, $query);
-
-    
 
     return mysqli_affected_rows($conn);
 }

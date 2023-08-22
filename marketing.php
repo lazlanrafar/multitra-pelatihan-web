@@ -5,7 +5,7 @@ if (!isset($_SESSION['login'])) {
     exit();
 }
 
-require 'function.php';
+require 'config/pelatihan.php';
 
 //pagination
 //konfigurasi
@@ -56,29 +56,6 @@ if (isset($_POST['edit'])) {
       ";
     }
 }
-
-// akhir edit
-
-// tambah
-if (isset($_POST['simpan'])) {
-    // cek apakah data berhasil ditambahkan atau tidak
-    if (marketing_tambah($_POST) > 0) {
-        echo "
-          <script>
-          alert('data berhasil ditambahkan!');
-          document.location.href = 'marketing.php';
-          </script>
-      ";
-    } else {
-        echo "
-          <script>
-          alert('data gagal ditambahkan!');
-          document.location.href = 'marketing.php';
-          </script>
-      ";
-    }
-}
-// akhir tambah
 ?>
 
 <!doctype html>
@@ -101,10 +78,7 @@ if (isset($_POST['simpan'])) {
                         <h5>Jam : <b><span id="jam" style="font-size:1rem"></span></b></h5>
                     </div>
 
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalFormTambahData">
-                        Tambah Data <i class="bi bi-file-earmark-plus"></i>
-                    </button>
+                    <?php include 'components/form-pelatihan.php'; ?>
 
                     <div class="modal fade" id="modalFormTambahData" tabindex="-1"
                         aria-labelledby="modalFormTambahDataLabel" aria-hidden="true">
