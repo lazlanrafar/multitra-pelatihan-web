@@ -61,7 +61,9 @@ $multi = query('SELECT * FROM user ORDER BY nama DESC');
                                         <td><?php echo $row['email']; ?></td>
                                         <td><?php echo $row['user_akses']; ?></td>
                                         <td></td>
-                                        <td></td>
+                                        <td>
+                                            <?php include 'components/handle-delete-user.php'; ?>
+                                        </td>
                                     </tr>
                                     <?php $i++; ?>
                                     <?php endforeach; ?>
