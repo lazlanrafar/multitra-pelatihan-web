@@ -7,7 +7,7 @@
 
         <ul class="sidebar-nav">
             <li class="sidebar-item active">
-                <a class="sidebar-link" href="index.html">
+                <a class="sidebar-link" href="index.php">
                     <i class="align-middle" data-feather="sliders"></i>
                     <span class="align-middle">Dashboard</span>
                 </a>
@@ -16,7 +16,7 @@
             <?php if ($_SESSION['user_akses'] == 'Super Admin') { ?>
             <li class="sidebar-header">Utils</li>
             <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-profile.html">
+                <a class="sidebar-link" href="user.php">
                     <i class="align-middle" data-feather="user"></i>
                     <span class="align-middle">Users</span>
                 </a>
