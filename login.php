@@ -23,6 +23,7 @@ if (isset($_POST["login"])) {
 		if ( password_verify($password, $row["password"])) {
 			// set session
 			$_SESSION["login"] = true;
+			$_SESSION["user"] = $row;
 			$_SESSION["user_akses"] = $row["user_akses"];
 
 			if ($row["user_akses"] == 'Super Admin') {

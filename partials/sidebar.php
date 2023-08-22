@@ -1,4 +1,4 @@
-<nav id="sidebar" class="sidebar js-sidebar idebar-hidden collapsed">
+<nav id="sidebar" class="sidebar js-sidebar sidebar-hidden collapsed">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="index.php">
             <img src="assets/img/logo.png" width="40" alt="" />
@@ -23,5 +23,16 @@
             </li>
             <?php } ?>
         </ul>
+
+        <div class="sidebar-cta">
+            <div class="sidebar-cta-content">
+                <div class="d-grid">
+                    <a href="logout.php" class="btn btn-danger">
+                        <i class="fa fa-logout"></i>
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </nav>
