@@ -5,7 +5,7 @@ if (!isset($_SESSION['login'])) {
     exit();
 }
 
-if ($_SESSION['user_akses'] !== 'Admin Operasional') {
+if ($_SESSION['user_akses'] !== 'Operasional Training') {
     header('Location: index.php');
     exit();
 }
@@ -56,7 +56,7 @@ if (isset($_POST['filter_status'])) {
 
             <main class="content">
                 <div class="container-fluid p-0">
-                    <h1 class="h3 mb-3"><strong>Admin Operasional</strong> Dashboard</h1>
+                    <h1 class="h3 mb-3"><strong>Operasional Training</strong> Dashboard</h1>
 
                     <div class="text-right">
                         <H5 class="jam"> <span id="tanggalwaktu"></span></H5>
@@ -146,13 +146,13 @@ if (isset($_POST['filter_status'])) {
                                             <th>Tgl Selesai</th>
                                             <th>Jumlah Peserta</th>
                                             <th>Status Kegiatan</th>
-                                            <th>Tanggal Aktual Sertifikat</th>
-                                            <th>Tanggal Target Sertifikat</th>
-                                            <th>Pengajuan Sertifikat Internal</th>
-                                            <th>Tanggal Aktual Dokumen</th>
-                                            <th>Tanggal Target Dokumen</th>
-                                            <th>Dokumen Diterima Dari Kemnaker</th>
-                                            <th>Status Dokumen</th>
+                                            <th>Tanggal Aktual Permohonan</th>
+                                            <th>Tanggal Target Permohonan</th>
+                                            <th>Permohonan Izin Pelatihan ke Teman K3</th>
+                                            <th>Tanggal Aktual Input Peserta</th>
+                                            <th>Tanggal Target Input Peserta</th>
+                                            <th>Input Peserta</th>
+                                            <th>Submit Data Peserta</th>
                                             <th>Keterangan</th>
                                             <th colspan="1">Aksi</th>
                                         </tr>
@@ -181,7 +181,7 @@ if (isset($_POST['filter_status'])) {
                                             <?php require 'partials/row-status-dokumen.php'; ?>
                                             <?php require 'partials/row-keterangan.php'; ?>
                                             <td>
-                                                <?php require 'components/admin-form-update-pelatihan.php'; ?>
+                                                <?php require 'components/operasional-form-update-pelatihan.php'; ?>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>

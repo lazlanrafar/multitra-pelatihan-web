@@ -12,5 +12,5 @@ if ($_SESSION['user_akses'] == 'Super Admin') {
 } elseif ($_SESSION['user_akses'] == 'Admin Operasional') {
     header('Location: admin-operasional.php');
 } elseif ($_SESSION['user_akses'] == 'Operasional Training') {
-    header('Location: operasional_training.php');
+    header('Location: operasional-training.php');
 }
