@@ -35,6 +35,7 @@ $multi = query('SELECT * FROM user ORDER BY nama DESC');
                         <h5>Jam : <b><span id="jam" style="font-size:1rem"></span></b></h5>
                     </div>
 
+                    <?php include 'components/user-form.php'; ?>
                     <br>
                     <br>
                     <div class="card">
