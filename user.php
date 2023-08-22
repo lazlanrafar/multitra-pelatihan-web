@@ -12,7 +12,7 @@ if ($_SESSION['user_akses'] !== 'Super Admin') {
 
 require 'config/user.php';
 
-$multi = query('SELECT * FROM user ORDER BY nama DESC');
+$multi = query('SELECT * FROM user ORDER BY nama ASC');
 ?>
 
 <!doctype html>
