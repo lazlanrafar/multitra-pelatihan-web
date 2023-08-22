@@ -6,7 +6,7 @@ if (isset($_SESSION['login'])) {
     exit();
 }
 
-require 'function.php';
+require 'config/config.php';
 
 if (isset($_POST['login'])) {
     $username = $_POST['username'];

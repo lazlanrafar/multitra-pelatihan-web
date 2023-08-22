@@ -41,49 +41,6 @@ if (isset($_POST['filter_status'])) {
         $multi = cari('');
     }
 }
-
-// edit
-if (isset($_POST['edit'])) {
-    // cek apakah data berhasil diedit atau tidak
-    if (edit($_POST) > 0) {
-        echo "
-          <script>
-          alert('data berhasil diedit!');
-          document.location.href = 'index.php';
-          </script>
-      ";
-    } else {
-        echo "
-          <script>
-          alert('data gagal diedit!');
-          document.location.href = 'index.php';
-          </script>
-      ";
-    }
-}
-
-// akhir edit
-
-// tambah
-if (isset($_POST['simpan'])) {
-    // cek apakah data berhasil ditambahkan atau tidak
-    if (tambah($_POST) > 0) {
-        echo "
-          <script>
-          alert('data berhasil ditambahkan!');
-          document.location.href = 'index.php';
-          </script>
-      ";
-    } else {
-        echo "
-          <script>
-          alert('data gagal ditambahkan!');
-          document.location.href = 'index.php';
-          </script>
-      ";
-    }
-}
-// akhir tambah
 ?>
 
 <!doctype html>
