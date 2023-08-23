@@ -1,4 +1,23 @@
-<!-- Button trigger modal -->
+<?php
+if (isset($_POST['updatePelatihanOperasional'])) {
+    if (updatePelatihanOperasional($_POST) > 0) {
+        echo "
+          <script>
+          alert('data berhasil diubah!');
+          document.location.href = 'marketing.php';
+          </script>
+      ";
+    } else {
+        echo "
+          <script>
+          alert('data gagal diubah!');
+          document.location.href = 'marketing.php';
+          </script>
+      ";
+    }
+}
+?>
+
 <button type="button" class="btn btn-success" data-bs-toggle="modal"
     data-bs-target="#updatePelatihanOperasional<?php echo $row['id']; ?>">
     <i class="bi bi-pencil-square"></i>
@@ -85,7 +104,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" name="edit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" name="updatePelatihanOperasional" class="btn btn-primary">Simpan</button>
                 </div>
 
             </form>

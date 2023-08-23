@@ -10,7 +10,7 @@ if ($_SESSION['user_akses'] !== 'Operasional Training') {
     exit();
 }
 
-require 'config/pelatihan-admin.php';
+require 'config/pelatihan-operasional.php';
 
 //pagination
 //konfigurasi
