@@ -23,7 +23,7 @@ $awalData = $jumlahDataPerHalaman * $halamanAktif - $jumlahDataPerHalaman;
 
 $multi = query("SELECT * FROM tabel_pelatihan LIMIT $awalData, $jumlahDataPerHalaman");
 
-$multi = query('SELECT * FROM tabel_pelatihan ORDER BY tanggal_mulai DESC');
+$multi = query('SELECT * FROM tabel_pelatihan ORDER BY created_at DESC');
 
 //tombol pencarian
 if (isset($_POST['cari'])) {
