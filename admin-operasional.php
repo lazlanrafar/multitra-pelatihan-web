@@ -175,24 +175,3 @@ if (isset($_POST['filter_status'])) {
 </body>
 
 </html>
-<?php
-
-function getStatus($aktual, $target)
-{
-    if ($aktual == null) {
-        return 'On Progress';
-    }
-    if (date('d M y', strtotime($aktual)) < date('d M y', strtotime($target))) {
-        return 'Done';
-    }
-    $aktualTimestamp = strtotime(date('d M y', strtotime($aktual)));
-    $targetTimestamp = strtotime(date('d M y', strtotime($target)));
-
-    if ($aktualTimestamp > $targetTimestamp) {
-        $differenceInSeconds = $aktualTimestamp - $targetTimestamp;
-        $differenceInDays = floor($differenceInSeconds / (60 * 60 * 24));
-
-        return 'Over Schedule + ' . $differenceInDays;
-    }
-}
-?>

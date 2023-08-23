@@ -103,16 +103,42 @@ if (isset($_POST['filter_status'])) {
                                             <td><?php echo $row['jumlah_peserta']; ?></td>
                                             <?php require 'partials/row-status-kegiatan.php'; ?>
 
-                                            <td><?php echo $row['tgl_aktual_serti']; ?></td>
-                                            <td><?php echo $row['tgl_target_serti']; ?></td>
+                                            <?php if ($row["tgl_aktual_permohonan_izin"]) : ?>
+                                            <td class="text-success">
+                                                <?php echo $row['tgl_aktual_permohonan_izin']; ?>
+                                            </td>
+                                            <?php else : ?>
+                                            <td class="bg-danger text-white">
+                                                <?php echo $row['tgl_aktual_permohonan_izin']; ?>
+                                            </td>
+                                            <?php endif ?>
+                                            <td><?php echo $row['tgl_target_permohonan_izin']; ?></td>
 
-                                            <?php require 'partials/row-pengajuan-sertifikat-internal.php'; ?>
+                                            <?php require 'partials/row-permohonan-izin-teman.php'; ?>
 
-                                            <td><?php echo $row['tgl_aktual_dok']; ?></td>
-                                            <td><?php echo $row['tgl_target_dok']; ?></td>
+                                            <?php if ($row["tgl_aktual_input_peserta"]) : ?>
+                                            <td class="text-success">
+                                                <?php echo $row['tgl_aktual_input_peserta']; ?>
+                                            </td>
+                                            <?php else : ?>
+                                            <td class="bg-danger text-white">
+                                                <?php echo $row['tgl_aktual_input_peserta']; ?>
+                                            </td>
+                                            <?php endif ?>
+                                            <td><?php echo $row['tgl_target_input_peserta']; ?></td>
 
-                                            <?php require 'partials/row-dokumen-diterima.php'; ?>
-                                            <?php require 'partials/row-status-dokumen.php'; ?>
+                                            <?php require 'partials/row-input-peserta.php'; ?>
+
+                                            <?php if ($row["submit_data_peserta"]) : ?>
+                                            <td class="text-success">
+                                                <?php echo $row['submit_data_peserta']; ?>
+                                            </td>
+                                            <?php else : ?>
+                                            <td class="bg-danger text-white">
+                                                <?php echo $row['submit_data_peserta']; ?>
+                                            </td>
+                                            <?php endif ?>
+
                                             <?php require 'partials/row-keterangan.php'; ?>
                                             <td>
                                                 <?php require 'components/operasional-form-update-pelatihan.php'; ?>
@@ -157,24 +183,3 @@ if (isset($_POST['filter_status'])) {
 </body>
 
 </html>
-<?php
-
-function getStatus($aktual, $target)
-{
-    if ($aktual == null) {
-        return 'On Progress';
-    }
-    if (date('d M y', strtotime($aktual)) < date('d M y', strtotime($target))) {
-        return 'Done';
-    }
-    $aktualTimestamp = strtotime(date('d M y', strtotime($aktual)));
-    $targetTimestamp = strtotime(date('d M y', strtotime($target)));
-
-    if ($aktualTimestamp > $targetTimestamp) {
-        $differenceInSeconds = $aktualTimestamp - $targetTimestamp;
-        $differenceInDays = floor($differenceInSeconds / (60 * 60 * 24));
-
-        return 'Over Schedule + ' . $differenceInDays;
-    }
-}
-?>

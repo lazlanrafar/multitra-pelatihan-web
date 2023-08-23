@@ -3,13 +3,13 @@
     <?php echo $row['input_peserta']; ?>
 </td>
 
-<?php elseif ($row["input_peserta"] === 'Late') : ?>
+<?php elseif ($row["input_peserta"] === 'On Progress') : ?>
 <td class="text-warning">
     <?php echo $row['input_peserta']; ?>
 </td>
 
-<?php elseif ($row["input_peserta"] === 'Not Yet') : ?>
-<td class="text-purple">
+<?php elseif ($row["input_peserta"] === 'Over Schedule') : ?>
+<td class="text-danger">
     <?php echo $row['input_peserta']; ?>
 </td>
 

@@ -4,9 +4,6 @@
     <i class="bi bi-pencil-square"></i>
 </button>
 
-
-
-
 <!-- Modal -->
 <div class="modal fade" id="updatePelatihanOperasional<?php echo $row['id']; ?>" tabindex="-1"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -61,27 +58,23 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label text-start" for="tgl_aktual_serti">Tanggal Aktual Sertifikat
+                        <label class="form-label text-start" for="tgl_aktual_permohonan_izin">Tanggal Aktual Permohonan
                         </label>
-                        <Input class="form-control" type="date" name="tgl_aktual_serti" id="tgl_aktual_serti"
-                            required value="<?php echo $row['tgl_aktual_serti']; ?>">
+                        <Input class="form-control" type="date" name="tgl_aktual_permohonan_izin"
+                            id="tgl_aktual_permohonan_izin" required value="<?php echo $row['tgl_aktual_permohonan_izin']; ?>">
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label text-start" for="tgl_aktual_dok">Tanggal Aktual Dokumen </label>
-                        <Input class="form-control" type="date" name="tgl_aktual_dok" id="tgl_aktual_dok" required
-                            value="<?php echo $row['tgl_aktual_dok']; ?>">
+                        <label class="form-label text-start" for="tgl_aktual_input_peserta">Tanggal Aktual Input
+                            Peserta</label>
+                        <Input class="form-control" type="date" name="tgl_aktual_input_peserta"
+                            id="tgl_aktual_input_peserta" required value="<?php echo $row['tgl_aktual_input_peserta']; ?>">
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label text-start" for="status_dokumen">Status Dokumen </label>
-                        <select class="form-select" aria-label="Default select example" name="status_dokumen">
-                            <option selected><?php echo $row['status_dokumen']; ?></option>
-                            <option value="Done">Done</option>
-                            <option value="Proses Arsip">Proses Arsip</option>
-                            <option value="Proses Kemnaker">Proses Kemnaker</option>
-                            <option value="Siap Distribusi">Siap Distribusi</option>
-                        </select>
+                        <label class="form-label text-start" for="submit_data_peserta">Submit Data Peserta </label>
+                        <Input class="form-control" type="date" name="submit_data_peserta" id="submit_data_peserta"
+                            required value="<?php echo $row['submit_data_peserta']; ?>">
                     </div>
 
                     <div class="mb-3">
