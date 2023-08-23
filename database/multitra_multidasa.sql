@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2023 at 12:13 AM
+-- Generation Time: Aug 23, 2023 at 06:53 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -35,34 +35,30 @@ CREATE TABLE `tabel_pelatihan` (
   `jumlah_peserta` int(100) DEFAULT NULL,
   `status_kegiatan` varchar(200) DEFAULT NULL,
   `permohonan_izin` varchar(200) DEFAULT NULL,
-  `input_peserta` varchar(200) DEFAULT NULL,
-  `submit_data_peserta` varchar(200) DEFAULT NULL,
+  `input_peserta` varchar(200) NOT NULL DEFAULT 'On Progress',
+  `submit_data_peserta` date DEFAULT NULL,
   `tgl_aktual_serti` date DEFAULT NULL,
   `tgl_target_serti` date DEFAULT NULL,
-  `pengajuan_sertifikat_internal` varchar(200) DEFAULT NULL,
+  `pengajuan_sertifikat_internal` varchar(200) NOT NULL DEFAULT 'On Progress',
   `tgl_aktual_dok` date DEFAULT NULL,
   `tgl_target_dok` date DEFAULT NULL,
-  `dokumen_diterima` varchar(200) DEFAULT NULL,
+  `dokumen_diterima` varchar(200) NOT NULL DEFAULT 'On Progress',
   `status_dokumen` varchar(200) DEFAULT NULL,
-  `keterangan` varchar(200) DEFAULT NULL
+  `tgl_aktual_permohonan_izin` date DEFAULT NULL,
+  `tgl_target_permohonan_izin` date DEFAULT NULL,
+  `tgl_aktual_input_peserta` date DEFAULT NULL,
+  `tgl_target_input_peserta` date DEFAULT NULL,
+  `permohonan_izin_pelatihan` varchar(255) NOT NULL DEFAULT 'On Progress',
+  `keterangan` varchar(200) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tabel_pelatihan`
 --
 
-INSERT INTO `tabel_pelatihan` (`id`, `nama_kegiatan`, `tanggal_mulai`, `tanggal_selesai`, `jumlah_peserta`, `status_kegiatan`, `permohonan_izin`, `input_peserta`, `submit_data_peserta`, `tgl_aktual_serti`, `tgl_target_serti`, `pengajuan_sertifikat_internal`, `tgl_aktual_dok`, `tgl_target_dok`, `dokumen_diterima`, `status_dokumen`, `keterangan`) VALUES
-(17, 'Pembinaan Ahli K3 Umum -74', '2023-05-12', '2023-05-26', 20, 'Estimate', 'Over Schedule', 'Done', 'Not Yet', '0000-00-00', '0000-00-00', 'Late', '0000-00-00', '0000-00-00', 'Done', 'Proses Arsip', ''),
-(19, 'Pembinaan dan Sertifikasi K3 Teknisi Listrik (Publik)', '2023-05-08', '2023-05-15', 14, 'Running', 'Not Yet', 'Done', 'Not Yet', '0000-00-00', '0000-00-00', 'Late', '0000-00-00', '0000-00-00', 'Done', 'Proses Arsip', 'sgdsggag'),
-(20, 'Pembinaan dan Sertifikasi K3 Operator Boiler Kelas II Angkatan 8', '2023-05-08', '2023-05-13', 15, 'Running', 'Done', 'Late', 'Not Yet', '0000-00-00', '0000-00-00', 'Done', '0000-00-00', '0000-00-00', 'Done', 'Siap Distribusi', ''),
-(21, 'Pembinaan dan Sertifikasi K3 Juru Ikat  (Rigger) PT McDermott', '2023-05-02', '2023-05-04', 12, 'Postpone', 'Late', 'Done', 'Not Yet', '0000-00-00', '0000-00-00', 'Late', '0000-00-00', '0000-00-00', 'On Progress', 'Proses Arsip', ''),
-(22, 'Pembinaan dan Sertifikasi K3 TKBT Tingkat II', '2023-05-08', '2023-05-10', 12, 'On Schedule', 'Done', 'Done', 'Done', '0000-00-00', '0000-00-00', 'Done', '0000-00-00', '0000-00-00', 'Over Schedule', 'Proses Kemnaker', ''),
-(23, 'Pembinaan dan Sertifikasi K3 Simulasi Tanggap Darurat', '2023-05-11', '2023-05-12', 25, 'Cancel', 'Late', 'Late', 'Late', '0000-00-00', '0000-00-00', 'Late', '0000-00-00', '0000-00-00', 'Done', 'Siap Distribusi', ''),
-(24, 'Pembinaan dan Sertifikasi K3 Petugas Peran Kebakaran Kelas D PT. Philips Industries Batam (In-House)', '2023-05-15', '2023-05-17', 10, 'Estimate', 'Over Schedule', 'Done', 'Late', '2023-08-15', '2023-08-21', 'Done', '2023-08-17', '2023-10-16', 'On Progress', 'Proses Arsip', 'Peserta tidur'),
-(25, 'Pembinaan dan Sertifikasi K3 Confined Space Utama dan Madya (Publik)', '2023-05-15', '2023-05-19', 11, 'Done', 'Late', 'Not Yet', 'Late', '2023-08-11', '2023-08-17', 'Not Yet', '2023-08-12', '2023-10-11', 'Over Schedule', 'Proses Kemnaker', ''),
-(26, 'Pembinaan dan Sertifikasi K3 Koordinator Penanggulangan Kebakaran Kelas B (In-House)', '2023-05-15', '2023-05-20', 5, 'Running', 'Done', 'Late', 'Not Yet', '2023-06-01', '2023-06-07', 'Done', '2023-05-30', '2023-07-29', 'On Progress', 'Siap Distribusi', ''),
-(27, 'Petugas K3 P3K', '2023-05-15', '2023-05-18', 16, 'Postpone', 'Late', 'Not Yet', 'Not Yet', '2023-08-23', '2023-08-29', 'Late', '2023-08-23', '2023-10-22', 'Done', 'Siap Distribusi', ''),
-(42, 'Pembinaan Hari Kemerdekaan Indonesia', '2023-08-23', '2023-08-25', 12, 'On Schedule', NULL, NULL, NULL, '2023-08-23', '2023-08-29', NULL, '2023-08-23', '2023-10-22', NULL, 'Proses Arsip', 'The best folder structure for a PHP web project depends on the size of the project, your team&#039;s workflow, and personal preferences. However, I can provide you with a general folder structure that');
+INSERT INTO `tabel_pelatihan` (`id`, `nama_kegiatan`, `tanggal_mulai`, `tanggal_selesai`, `jumlah_peserta`, `status_kegiatan`, `permohonan_izin`, `input_peserta`, `submit_data_peserta`, `tgl_aktual_serti`, `tgl_target_serti`, `pengajuan_sertifikat_internal`, `tgl_aktual_dok`, `tgl_target_dok`, `dokumen_diterima`, `status_dokumen`, `tgl_aktual_permohonan_izin`, `tgl_target_permohonan_izin`, `tgl_aktual_input_peserta`, `tgl_target_input_peserta`, `permohonan_izin_pelatihan`, `keterangan`, `created_at`) VALUES
+(43, 'Pembinaan dan Sertifikasi K3 Petugas Peran Kebakaran Kelas D PT. Philips Industries Batam (In-House)', '2023-08-23', '2023-08-25', 15, 'On Schedule', NULL, 'Done', '2023-08-31', '2023-08-31', '2023-08-31', 'Done', '2023-09-10', '2023-10-24', 'Done', 'Siap Distribusi', '2023-08-18', '2023-08-18', '2023-08-19', '2023-08-24', 'Done', '', '2023-08-23 15:38:12');
 
 -- --------------------------------------------------------
 
@@ -113,7 +109,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `tabel_pelatihan`
 --
 ALTER TABLE `tabel_pelatihan`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `user`
