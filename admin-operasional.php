@@ -103,12 +103,30 @@ if (isset($_POST['filter_status'])) {
                                             <td><?php echo $row['jumlah_peserta']; ?></td>
                                             <?php require 'partials/row-status-kegiatan.php'; ?>
 
-                                            <td><?php echo $row['tgl_aktual_serti']; ?></td>
+                                            <?php if ($row["tgl_aktual_serti"]) : ?>
+                                            <td class="text-success">
+                                                <?php echo $row['tgl_aktual_serti']; ?>
+                                            </td>
+                                            <?php else : ?>
+                                            <td class="bg-danger text-white">
+                                                <?php echo $row['tgl_aktual_serti']; ?>
+                                            </td>
+                                            <?php endif ?>
+
                                             <td><?php echo $row['tgl_target_serti']; ?></td>
 
                                             <?php require 'partials/row-pengajuan-sertifikat-internal.php'; ?>
 
-                                            <td><?php echo $row['tgl_aktual_dok']; ?></td>
+                                            <?php if ($row["tgl_aktual_dok"]) : ?>
+                                            <td class="text-success">
+                                                <?php echo $row['tgl_aktual_dok']; ?>
+                                            </td>
+                                            <?php else : ?>
+                                            <td class="bg-danger text-white">
+                                                <?php echo $row['tgl_aktual_dok']; ?>
+                                            </td>
+                                            <?php endif ?>
+
                                             <td><?php echo $row['tgl_target_dok']; ?></td>
 
                                             <?php require 'partials/row-dokumen-diterima.php'; ?>

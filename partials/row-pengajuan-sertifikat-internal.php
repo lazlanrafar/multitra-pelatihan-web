@@ -3,13 +3,13 @@
     <?php echo $row['pengajuan_sertifikat_internal']; ?>
 </td>
 
-<?php elseif ($row["pengajuan_sertifikat_internal"] === 'Not Yet') : ?>
-<td class="text-purple">
+<?php elseif ($row["pengajuan_sertifikat_internal"] === 'On Progress') : ?>
+<td class="text-warning">
     <?php echo $row['pengajuan_sertifikat_internal']; ?>
 </td>
 
-<?php elseif ($row["pengajuan_sertifikat_internal"] === 'Late') : ?>
-<td class="text-warning">
+<?php elseif ($row["pengajuan_sertifikat_internal"] === 'Over Schedule') : ?>
+<td class="text-danger">
     <?php echo $row['pengajuan_sertifikat_internal']; ?>
 </td>
 
