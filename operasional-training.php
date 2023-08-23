@@ -128,17 +128,7 @@ if (isset($_POST['filter_status'])) {
                                             <td><?php echo $row['tgl_target_input_peserta']; ?></td>
 
                                             <?php require 'partials/row-input-peserta.php'; ?>
-
-                                            <?php if ($row["submit_data_peserta"]) : ?>
-                                            <td class="text-success">
-                                                <?php echo $row['submit_data_peserta']; ?>
-                                            </td>
-                                            <?php else : ?>
-                                            <td class="bg-danger text-white">
-                                                <?php echo $row['submit_data_peserta']; ?>
-                                            </td>
-                                            <?php endif ?>
-
+                                            <?php require 'partials/row-submit-data-peserta.php'; ?>
                                             <?php require 'partials/row-keterangan.php'; ?>
                                             <td>
                                                 <?php require 'components/operasional-form-update-pelatihan.php'; ?>

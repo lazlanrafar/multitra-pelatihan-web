@@ -99,7 +99,7 @@ if (isset($_POST['filter_status'])) {
                                             <td><?php echo $row['tanggal_selesai']; ?></td>
                                             <td><?php echo $row['jumlah_peserta']; ?></td>
                                             <?php require 'partials/row-status-kegiatan.php'; ?>
-                                            <?php require 'partials/row-permohonan-izin.php'; ?>
+                                            <?php require 'partials/row-permohonan-izin-teman.php'; ?>
                                             <?php require 'partials/row-input-peserta.php'; ?>
                                             <?php require 'partials/row-submit-data-peserta.php'; ?>
                                             <?php require 'partials/row-pengajuan-sertifikat-internal.php'; ?>
