@@ -92,6 +92,7 @@ if (isset($_POST['filter_status'])) {
                                             <th>Dokumen Diterima Dari Kemnaker</th>
                                             <th>Status Dokumen</th>
                                             <th>Keterangan</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -112,6 +113,9 @@ if (isset($_POST['filter_status'])) {
                                             <?php require 'partials/row-dokumen-diterima.php'; ?>
                                             <?php require 'partials/row-status-dokumen.php'; ?>
                                             <?php require 'partials/row-keterangan.php'; ?>
+                                            <td>
+                                                <?php require 'components/handle-delete-pelatihan.php'; ?>
+                                            </td>
                                         </tr>
                                         <?php $i++; ?>
                                         <?php endforeach; ?>
