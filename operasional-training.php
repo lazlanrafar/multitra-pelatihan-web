@@ -110,7 +110,7 @@ if (isset($_POST['filter_status'])) {
                                             <?php require 'partials/row-status-kegiatan.php'; ?>
 
                                             <?php if ($row["tgl_aktual_permohonan_izin"]) : ?>
-                                            <td class="text-success">
+                                            <td>
                                                 <?php echo formatDate($row['tgl_aktual_permohonan_izin']); ?>
                                             </td>
                                             <?php else : ?>
@@ -123,7 +123,7 @@ if (isset($_POST['filter_status'])) {
                                             <?php require 'partials/row-permohonan-izin-teman.php'; ?>
 
                                             <?php if ($row["tgl_aktual_input_peserta"]) : ?>
-                                            <td class="text-success">
+                                            <td>
                                                 <?php echo formatDate($row['tgl_aktual_input_peserta']); ?>
                                             </td>
                                             <?php else : ?>

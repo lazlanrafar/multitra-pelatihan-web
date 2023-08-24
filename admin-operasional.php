@@ -110,7 +110,7 @@ if (isset($_POST['filter_status'])) {
                                             <?php require 'partials/row-status-kegiatan.php'; ?>
 
                                             <?php if ($row["tgl_aktual_serti"]) : ?>
-                                            <td class="text-success">
+                                            <td>
                                                 <?php echo formatDate($row['tgl_aktual_serti']); ?>
                                             </td>
                                             <?php else : ?>
@@ -124,7 +124,7 @@ if (isset($_POST['filter_status'])) {
                                             <?php require 'partials/row-pengajuan-sertifikat-internal.php'; ?>
 
                                             <?php if ($row["tgl_aktual_dok"]) : ?>
-                                            <td class="text-success">
+                                            <td>
                                                 <?php echo formatDate($row['tgl_aktual_dok']); ?>
                                             </td>
                                             <?php else : ?>
