@@ -10,7 +10,7 @@ if ($_SESSION['user_akses'] !== 'Super Admin') {
     exit();
 }
 
-require 'config/pelatihan.php';
+require 'config/pelatihan-superadmin.php';
 
 //pagination
 //konfigurasi
@@ -69,6 +69,7 @@ if (isset($_POST['filter_status'])) {
                         <img src="assets/img/logo.png" width="90" alt="">
                     </div>
 
+                    <?php include 'components/marketing-form-pelatihan.php'; ?>
                     <br>
                     <br>
                     <div class="card">
@@ -92,7 +93,7 @@ if (isset($_POST['filter_status'])) {
                                             <th>Dokumen Diterima Dari Kemnaker</th>
                                             <th>Status Dokumen</th>
                                             <th>Keterangan</th>
-                                            <th>Action</th>
+                                            <th colspan="2">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -113,6 +114,9 @@ if (isset($_POST['filter_status'])) {
                                             <?php require 'partials/row-dokumen-diterima.php'; ?>
                                             <?php require 'partials/row-status-dokumen.php'; ?>
                                             <?php require 'partials/row-keterangan.php'; ?>
+                                            <td>
+                                                <?php require 'components/marketing-form-update-pelatihan.php'; ?>
+                                            </td>
                                             <td>
                                                 <?php require 'components/handle-delete-pelatihan.php'; ?>
                                             </td>
