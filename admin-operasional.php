@@ -56,11 +56,17 @@ if (isset($_POST['filter_status'])) {
 
             <main class="content">
                 <div class="container-fluid p-0">
-                    <h1 class="h3 mb-3"><strong>Admin Operasional</strong> Dashboard</h1>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h1 class="h3 mb-3"><strong>Admin Operasional</strong> Dashboard</h1>
 
-                    <div class="text-right">
-                        <H5 class="jam"> <span id="tanggalwaktu"></span></H5>
-                        <h5>Jam : <b><span id="jam" style="font-size:1rem"></span></b></h5>
+                            <div class="text-right">
+                                <H5 class="jam"> <span id="tanggalwaktu"></span></H5>
+                                <h5>Jam : <b><span id="jam" style="font-size:1rem"></span></b></h5>
+                            </div>
+                        </div>
+
+                        <img src="assets/img/logo.png" width="90" alt="">
                     </div>
 
 
