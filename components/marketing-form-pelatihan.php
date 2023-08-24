@@ -71,7 +71,7 @@ if (isset($_POST['createPelatihan'])) {
 
                     <div class="mb-3">
                         <label class="form-label" for="keterangan">Keterangan </label>
-                        <Input class="form-control" type="text" name="keterangan" id="keterangan" autocomplete="off">
+                        <textarea class="form-control" name="keterangan" cols="20" rows="5" autocomplete="off"></textarea>
                     </div>
 
                 </div>
