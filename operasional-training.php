@@ -104,34 +104,34 @@ if (isset($_POST['filter_status'])) {
                                             <td><?php echo $i; ?></td>
                                             <td><?php echo $row['id']; ?></td>
                                             <td><?php echo $row['nama_kegiatan']; ?></a></td>
-                                            <td><?php echo $row['tanggal_mulai']; ?></td>
-                                            <td><?php echo $row['tanggal_selesai']; ?></td>
+                                            <td><?php echo formatDate($row['tanggal_mulai']); ?></td>
+                                            <td><?php echo formatDate($row['tanggal_selesai']); ?></td>
                                             <td><?php echo $row['jumlah_peserta']; ?></td>
                                             <?php require 'partials/row-status-kegiatan.php'; ?>
 
                                             <?php if ($row["tgl_aktual_permohonan_izin"]) : ?>
                                             <td class="text-success">
-                                                <?php echo $row['tgl_aktual_permohonan_izin']; ?>
+                                                <?php echo formatDate($row['tgl_aktual_permohonan_izin']); ?>
                                             </td>
                                             <?php else : ?>
                                             <td class="bg-danger text-white">
-                                                <?php echo $row['tgl_aktual_permohonan_izin']; ?>
+                                                <?php echo formatDate($row['tgl_aktual_permohonan_izin']); ?>
                                             </td>
                                             <?php endif ?>
-                                            <td><?php echo $row['tgl_target_permohonan_izin']; ?></td>
+                                            <td><?php echo formatDate($row['tgl_target_permohonan_izin']); ?></td>
 
                                             <?php require 'partials/row-permohonan-izin-teman.php'; ?>
 
                                             <?php if ($row["tgl_aktual_input_peserta"]) : ?>
                                             <td class="text-success">
-                                                <?php echo $row['tgl_aktual_input_peserta']; ?>
+                                                <?php echo formatDate($row['tgl_aktual_input_peserta']); ?>
                                             </td>
                                             <?php else : ?>
                                             <td class="bg-danger text-white">
-                                                <?php echo $row['tgl_aktual_input_peserta']; ?>
+                                                <?php echo formatDate($row['tgl_aktual_input_peserta']); ?>
                                             </td>
                                             <?php endif ?>
-                                            <td><?php echo $row['tgl_target_input_peserta']; ?></td>
+                                            <td><?php echo formatDate($row['tgl_target_input_peserta']); ?></td>
 
                                             <?php require 'partials/row-input-peserta.php'; ?>
                                             <?php require 'partials/row-submit-data-peserta.php'; ?>

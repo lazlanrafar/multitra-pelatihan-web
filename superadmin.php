@@ -101,8 +101,8 @@ if (isset($_POST['filter_status'])) {
                                             <td><?php echo $i; ?></td>
                                             <td><?php echo $row['id']; ?></td>
                                             <td><?php echo $row['nama_kegiatan']; ?></a></td>
-                                            <td><?php echo $row['tanggal_mulai']; ?></td>
-                                            <td><?php echo $row['tanggal_selesai']; ?></td>
+                                            <td><?php echo formatDate($row['tanggal_mulai']); ?></td>
+                                            <td><?php echo formatDate($row['tanggal_selesai']); ?></td>
                                             <td><?php echo $row['jumlah_peserta']; ?></td>
                                             <?php require 'partials/row-status-kegiatan.php'; ?>
                                             <?php require 'partials/row-permohonan-izin-teman.php'; ?>
