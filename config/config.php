@@ -15,6 +15,9 @@ function query($query)
 
 function formatDate($date)
 {
+    if ($date == null) {
+        return '';
+    }
     $date = date_create($date);
     return date_format($date, 'd-m-Y');
 }
