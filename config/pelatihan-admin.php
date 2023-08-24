@@ -23,11 +23,17 @@ function updatePelatihanAdmin($data)
     if ($tgl_aktual_serti > $pelatihan['tgl_target_serti']) {
         $overSchedule = strtotime($tgl_aktual_serti) - strtotime($pelatihan['tgl_target_serti']);
         $pengajuan_sertifikat_internal = 'Over Schedule' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+    } else {
+        $overSchedule = strtotime($tgl_aktual_serti) - strtotime($pelatihan['tgl_target_serti']);
+        $pengajuan_sertifikat_internal = 'Done' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
     }
 
     if ($tgl_aktual_dok > $pelatihan['tgl_target_dok']) {
         $overSchedule = strtotime($tgl_aktual_dok) - strtotime($pelatihan['tgl_target_dok']);
         $dokumen_diterima = 'Over Schedule' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+    } else {
+        $overSchedule = strtotime($tgl_aktual_dok) - strtotime($pelatihan['tgl_target_dok']);
+        $dokumen_diterima = 'Done' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
     }
 
     $query = "UPDATE tabel_pelatihan
