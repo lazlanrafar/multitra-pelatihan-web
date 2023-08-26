@@ -15,25 +15,29 @@ function updatePelatihanAdmin($data)
     $status_dokumen = htmlspecialchars($data['status_dokumen']);
     $keterangan = htmlspecialchars($data['keterangan']);
 
-    $pengajuan_sertifikat_internal = 'Done';
-    $dokumen_diterima = 'Done';
+    $pengajuan_sertifikat_internal = 'On Progress';
+    $dokumen_diterima = 'On Progress';
 
     $pelatihan = query("SELECT * FROM tabel_pelatihan WHERE id = $id")[0];
 
-    if ($tgl_aktual_serti > $pelatihan['tgl_target_serti']) {
-        $overSchedule = strtotime($tgl_aktual_serti) - strtotime($pelatihan['tgl_target_serti']);
-        $pengajuan_sertifikat_internal = 'Over Schedule' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
-    } else {
-        $overSchedule = strtotime($tgl_aktual_serti) - strtotime($pelatihan['tgl_target_serti']);
-        $pengajuan_sertifikat_internal = 'Done' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+    if ($tgl_aktual_serti) {
+        if ($tgl_aktual_serti > $pelatihan['tgl_target_serti']) {
+            $overSchedule = strtotime($tgl_aktual_serti) - strtotime($pelatihan['tgl_target_serti']);
+            $pengajuan_sertifikat_internal = 'Over Schedule' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+        } else {
+            $overSchedule = strtotime($tgl_aktual_serti) - strtotime($pelatihan['tgl_target_serti']);
+            $pengajuan_sertifikat_internal = 'Done' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+        }
     }
 
-    if ($tgl_aktual_dok > $pelatihan['tgl_target_dok']) {
-        $overSchedule = strtotime($tgl_aktual_dok) - strtotime($pelatihan['tgl_target_dok']);
-        $dokumen_diterima = 'Over Schedule' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
-    } else {
-        $overSchedule = strtotime($tgl_aktual_dok) - strtotime($pelatihan['tgl_target_dok']);
-        $dokumen_diterima = 'Done' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+    if ($tgl_aktual_dok) {
+        if ($tgl_aktual_dok > $pelatihan['tgl_target_dok']) {
+            $overSchedule = strtotime($tgl_aktual_dok) - strtotime($pelatihan['tgl_target_dok']);
+            $dokumen_diterima = 'Over Schedule' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+        } else {
+            $overSchedule = strtotime($tgl_aktual_dok) - strtotime($pelatihan['tgl_target_dok']);
+            $dokumen_diterima = 'Done' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+        }
     }
 
     $query = "UPDATE tabel_pelatihan

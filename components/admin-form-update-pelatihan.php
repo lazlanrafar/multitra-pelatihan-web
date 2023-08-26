@@ -82,12 +82,12 @@ if (isset($_POST['updatePelatihanAdmin'])) {
                         <label class="form-label text-start" for="tgl_aktual_serti">Tanggal Aktual Sertifikat
                         </label>
                         <Input class="form-control" type="date" name="tgl_aktual_serti" id="tgl_aktual_serti"
-                            required value="<?php echo $row['tgl_aktual_serti']; ?>">
+                            value="<?php echo $row['tgl_aktual_serti']; ?>">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label text-start" for="tgl_aktual_dok">Tanggal Aktual Dokumen </label>
-                        <Input class="form-control" type="date" name="tgl_aktual_dok" id="tgl_aktual_dok" required
+                        <Input class="form-control" type="date" name="tgl_aktual_dok" id="tgl_aktual_dok"
                             value="<?php echo $row['tgl_aktual_dok']; ?>">
                     </div>
 

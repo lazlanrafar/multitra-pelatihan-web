@@ -18,6 +18,9 @@ function formatDate($date)
     if ($date == null) {
         return '';
     }
+    if ($date == '0000-00-00') {
+        return '';
+    }
     $date = date_create($date);
     return date_format($date, 'd-m-Y');
 }
