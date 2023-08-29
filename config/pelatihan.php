@@ -10,28 +10,33 @@ foreach ($items as $item) {
     $permohonan_izin_pelatihan = 'On Progress'; // tgl_target_permohonan_izin
     $input_peserta = 'On Progress'; // tgl_target_input_peserta
 
-    if ($today > $item['tgl_target_serti']) {
+    if ($today > $item['tgl_target_serti'] && $item['tgl_aktual_serti'] == 0) {
         $overSchedule = strtotime($today) - strtotime($item['tgl_target_serti']);
         $pengajuan_sertifikat_internal = 'Over Schedule' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+
+        mysqli_query($conn, "UPDATE tabel_pelatihan SET pengajuan_sertifikat_internal = '$pengajuan_sertifikat_internal' WHERE id = $item[id]");
     }
-    if ($today > $item['tgl_target_dok']) {
+
+    if ($today > $item['tgl_target_dok'] && $item['tgl_aktual_dok'] == 0) {
         $overSchedule = strtotime($today) - strtotime($item['tgl_target_dok']);
         $dokumen_diterima = 'Over Schedule' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+
+        mysqli_query($conn, "UPDATE tabel_pelatihan SET dokumen_diterima = '$dokumen_diterima' WHERE id = $item[id]");
     }
-    if ($today > $item['tgl_target_permohonan_izin']) {
+
+    if ($today > $item['tgl_target_permohonan_izin'] && $item['tgl_aktual_permohonan_izin'] == 0) {
         $overSchedule = strtotime($today) - strtotime($item['tgl_target_permohonan_izin']);
         $permohonan_izin_pelatihan = 'Over Schedule' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+
+        mysqli_query($conn, "UPDATE tabel_pelatihan SET permohonan_izin_pelatihan = '$permohonan_izin_pelatihan' WHERE id = $item[id]");
     }
-    if ($today > $item['tgl_target_input_peserta']) {
+
+    if ($today > $item['tgl_target_input_peserta'] && $item['tgl_aktual_input_peserta'] == 0) {
         $overSchedule = strtotime($today) - strtotime($item['tgl_target_input_peserta']);
         $input_peserta = 'Over Schedule' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+
+        mysqli_query($conn, "UPDATE tabel_pelatihan SET input_peserta = '$input_peserta' WHERE id = $item[id]");
     }
-
-    $query = "UPDATE tabel_pelatihan
-    SET pengajuan_sertifikat_internal = '$pengajuan_sertifikat_internal', dokumen_diterima = '$dokumen_diterima', permohonan_izin_pelatihan = '$permohonan_izin_pelatihan', input_peserta = '$input_peserta'
-    WHERE id = $item[id]";
-
-    mysqli_query($conn, $query);
 }
 
 function cari($keyword)
