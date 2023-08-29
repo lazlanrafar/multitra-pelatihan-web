@@ -10,25 +10,29 @@ function updatePelatihanOperasional($data)
     $submit_data_peserta = htmlspecialchars($data['submit_data_peserta']);
     $keterangan = htmlspecialchars($data['keterangan']);
 
-    $permohonan_izin_pelatihan = 'Done';
-    $input_peserta = 'Done';
+    $permohonan_izin_pelatihan = 'On Progress';
+    $input_peserta = 'On Progress';
 
     $pelatihan = query("SELECT * FROM tabel_pelatihan WHERE id = $id")[0];
 
-    if ($tgl_aktual_permohonan_izin > $pelatihan['tgl_target_permohonan_izin']) {
-        $overSchedule = strtotime($tgl_aktual_permohonan_izin) - strtotime($pelatihan['tgl_target_permohonan_izin']);
-        $permohonan_izin_pelatihan = 'Over Schedule' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
-    } else {
-        $overSchedule = strtotime($tgl_aktual_permohonan_izin) - strtotime($pelatihan['tgl_target_permohonan_izin']);
-        $permohonan_izin_pelatihan = 'Done' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+    if ($tgl_aktual_permohonan_izin) {
+        if ($tgl_aktual_permohonan_izin > $pelatihan['tgl_target_permohonan_izin']) {
+            $overSchedule = strtotime($tgl_aktual_permohonan_izin) - strtotime($pelatihan['tgl_target_permohonan_izin']);
+            $permohonan_izin_pelatihan = 'Over Schedule' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+        } else {
+            $overSchedule = strtotime($tgl_aktual_permohonan_izin) - strtotime($pelatihan['tgl_target_permohonan_izin']);
+            $permohonan_izin_pelatihan = 'Done' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+        }
     }
 
-    if ($tgl_aktual_input_peserta > $pelatihan['tgl_target_input_peserta']) {
-        $overSchedule = strtotime($tgl_aktual_input_peserta) - strtotime($pelatihan['tgl_target_input_peserta']);
-        $input_peserta = 'Over Schedule' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
-    } else {
-        $overSchedule = strtotime($tgl_aktual_input_peserta) - strtotime($pelatihan['tgl_target_input_peserta']);
-        $input_peserta = 'Done' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+    if ($tgl_aktual_input_peserta) {
+        if ($tgl_aktual_input_peserta > $pelatihan['tgl_target_input_peserta']) {
+            $overSchedule = strtotime($tgl_aktual_input_peserta) - strtotime($pelatihan['tgl_target_input_peserta']);
+            $input_peserta = 'Over Schedule' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+        } else {
+            $overSchedule = strtotime($tgl_aktual_input_peserta) - strtotime($pelatihan['tgl_target_input_peserta']);
+            $input_peserta = 'Done' . ' ' . floor($overSchedule / (60 * 60 * 24)) . ' ' . 'Day';
+        }
     }
 
     $query = "UPDATE tabel_pelatihan
