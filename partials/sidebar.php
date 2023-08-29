@@ -6,10 +6,16 @@
         </a>
 
         <ul class="sidebar-nav">
-            <li class="sidebar-item active">
+            <li class="sidebar-item">
                 <a class="sidebar-link" href="index.php">
                     <i class="align-middle" data-feather="sliders"></i>
                     <span class="align-middle">Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="history.php">
+                    <i class="align-middle" data-feather="compass"></i>
+                    <span class="align-middle">History</span>
                 </a>
             </li>
 
@@ -24,15 +30,13 @@
             <?php } ?>
         </ul>
 
-        <div class="sidebar-cta">
-            <div class="sidebar-cta-content">
-                <div class="d-grid">
-                    <a href="logout.php" class="btn btn-danger">
-                        <i class="fa fa-logout"></i>
-                        Logout
-                    </a>
-                </div>
-            </div>
-        </div>
+        <ul class="sidebar-nav mb-5 p-3" style="flex-grow: inherit">
+            <li class="sidebar-item">
+                <a class="sidebar-link bg-danger rounded text-white" href="logout.php">
+                    <i class="align-middle text-white" data-feather="log-out"></i>
+                    <span class="align-middle">Logout</span>
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>
