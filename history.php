@@ -107,9 +107,6 @@ if (isset($_POST['filter_status'])) {
                                             <?php require 'partials/row-dokumen-diterima.php'; ?>
                                             <?php require 'partials/row-status-dokumen.php'; ?>
                                             <?php require 'partials/row-keterangan.php'; ?>
-                                            <td>
-                                                <?php require 'components/marketing-form-update-pelatihan.php'; ?>
-                                            </td>
                                         </tr>
                                         <?php $i++; ?>
                                         <?php endforeach; ?>
